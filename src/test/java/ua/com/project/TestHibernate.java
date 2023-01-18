@@ -88,6 +88,7 @@ public void Test1(){
 
     assertEquals("beer2", product3.getName());
 
+
     productDao.delete(product3);
     assertEquals(0, productDao.findAll().size());
 }
