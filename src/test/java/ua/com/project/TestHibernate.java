@@ -56,6 +56,7 @@ public void Test1(){
     // categoryDao.delete(category3);
     // assertEquals(0, categoryDao.findAll().size());
 
+    //    Test ProductDao
 
     ProductDao productDao = factory.getProductDao();
 
@@ -65,7 +66,6 @@ public void Test1(){
     product.setImage("/image");
     product.setCategories(category3);
     product.setPrice(new BigDecimal(10.5));
-
 
     productDao.save(product);
 
@@ -84,9 +84,11 @@ public void Test1(){
     Product product2 = productDao.findById(1L);
     assertEquals("beer2", product2.getName());
 
-
     Product product3 = productDao.findByName("beer2");
 
     assertEquals("beer2", product3.getName());
+
+    productDao.delete(product3);
+    assertEquals(0, productDao.findAll().size());
 }
 }

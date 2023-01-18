@@ -22,13 +22,13 @@ public class ProductRepository implements ProductDao {
         entityManager.getTransaction().begin();
 
         // SQL
-//        entityManager.createNativeQuery("INSERT INTO `product` (`description`, `image`, `name`, `price`, `category_id`) VALUES (?, ?, ?, ?, ?)")
-//                .setParameter(1, obj.getDescription())
-//                .setParameter(2, obj.getImage())
-//                .setParameter(3, obj.getName())
-//                .setParameter(4, obj.getPrice())
-//                .setParameter(5, obj.getCategories())
-//                .executeUpdate();
+        entityManager.createNativeQuery("INSERT INTO `product` (`description`, `image`, `name`, `price`, `category_id`) VALUES (?, ?, ?, ?, ?)")
+                .setParameter(1, obj.getDescription())
+                .setParameter(2, obj.getImage())
+                .setParameter(3, obj.getName())
+                .setParameter(4, obj.getPrice())
+                .setParameter(5, obj.getCategories())
+                .executeUpdate();
 
         // HQL ?
 //        entityManager.createQuery("INSERT INTO Product (description, image, name, price, categories)" +
@@ -41,7 +41,7 @@ public class ProductRepository implements ProductDao {
 //                .executeUpdate();
 
         // Void
-        entityManager.persist(obj);
+//        entityManager.persist(obj);
 
         entityManager.getTransaction().commit();
 
@@ -54,25 +54,25 @@ public class ProductRepository implements ProductDao {
         entityManager.getTransaction().begin();
 
         // sql
-//        entityManager.createNativeQuery("update `product` set name=?, description=?, price=?, image=?, category_id=? where id=?")
-//                .setParameter(1, obj.getName())
-//                .setParameter(2, obj.getDescription())
-//                .setParameter(3, obj.getPrice())
-//                .setParameter(4, obj.getImage())
-//                .setParameter(5, obj.getCategories())
-//                .setParameter(6, obj.getId()).
-//                executeUpdate();
-        // hql
-        entityManager.createQuery("update Product as p set p.name=:name, p.description=:desc, p.price=:price, p.image=:image, p.categories=:category where p.id=:id")
-                .setParameter("name", obj.getName())
-                .setParameter("desc", obj.getDescription())
-                .setParameter("price", obj.getPrice())
-                .setParameter("category", obj.getCategories())
-                .setParameter("image", obj.getImage())
-                .setParameter("id", obj.getId()).
+        entityManager.createNativeQuery("update `product` set name=?, description=?, price=?, image=?, category_id=? where id=?")
+                .setParameter(1, obj.getName())
+                .setParameter(2, obj.getDescription())
+                .setParameter(3, obj.getPrice())
+                .setParameter(4, obj.getImage())
+                .setParameter(5, obj.getCategories())
+                .setParameter(6, obj.getId()).
                 executeUpdate();
+        // hql
+//        entityManager.createQuery("update Product as p set p.name=:name, p.description=:desc, p.price=:price, p.image=:image, p.categories=:category where p.id=:id")
+//                .setParameter("name", obj.getName())
+//                .setParameter("desc", obj.getDescription())
+//                .setParameter("price", obj.getPrice())
+//                .setParameter("category", obj.getCategories())
+//                .setParameter("image", obj.getImage())
+//                .setParameter("id", obj.getId()).
+//                executeUpdate();
         // void
-        //entityManager.merge(obj);
+//        entityManager.merge(obj);
 
         entityManager.getTransaction().commit();
 
